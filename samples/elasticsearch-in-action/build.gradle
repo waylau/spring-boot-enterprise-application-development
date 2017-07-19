@@ -49,9 +49,6 @@ dependencies {
 
 	// 添加 Spring Data Elasticsearch 的依赖
 	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
-	
-	// 添加  JNA 的依赖
-	compile('net.java.dev.jna:jna:4.4.0')
 
 	// 该依赖用于测试阶段
 	testCompile('org.springframework.boot:spring-boot-starter-test')
