@@ -1,11 +1,11 @@
-buildscript { // buildscript ´úÂë¿éÖĞ½Å±¾ÓÅÏÈÖ´ĞĞ
+buildscript { // buildscript ä»£ç å—ä¸­è„šæœ¬ä¼˜å…ˆæ‰§è¡Œ
 
-	// ext ÓÃÓÚ¶¨Òå¶¯Ì¬ÊôĞÔ
+	// ext ç”¨äºå®šä¹‰åŠ¨æ€å±æ€§
 	ext {
 		springBootVersion = '2.0.0.M2'
 	}
 
-	// Ê¹ÓÃÁË Maven µÄÖĞÑë²Ö¿â£¨Ò²¿ÉÒÔÖ¸¶¨ÆäËû²Ö¿â£©
+	// ä½¿ç”¨äº† Maven çš„ä¸­å¤®ä»“åº“ï¼ˆä¹Ÿå¯ä»¥æŒ‡å®šå…¶ä»–ä»“åº“ï¼‰
 	repositories {
 		//mavenCentral()
 		maven { url "https://repo.spring.io/snapshot" }
@@ -13,27 +13,27 @@ buildscript { // buildscript ´úÂë¿éÖĞ½Å±¾ÓÅÏÈÖ´ĞĞ
 		maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 	}
 
-	// ÒÀÀµ¹ØÏµ
+	// ä¾èµ–å…³ç³»
 	dependencies {
 
-		// classpath ÉùÃ÷ËµÃ÷ÁËÔÚÖ´ĞĞÆäÓàµÄ½Å±¾Ê±£¬ClassLoader ¿ÉÒÔÊ¹ÓÃÕâĞ©ÒÀÀµÏî
+		// classpath å£°æ˜è¯´æ˜äº†åœ¨æ‰§è¡Œå…¶ä½™çš„è„šæœ¬æ—¶ï¼ŒClassLoader å¯ä»¥ä½¿ç”¨è¿™äº›ä¾èµ–é¡¹
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
 
-// Ê¹ÓÃ²å¼ş
+// ä½¿ç”¨æ’ä»¶
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-// Ö¸¶¨ÁËÉú³ÉµÄ±àÒëÎÄ¼şµÄ°æ±¾£¬Ä¬ÈÏÊÇ´ò³ÉÁË jar °ü
+// æŒ‡å®šäº†ç”Ÿæˆçš„ç¼–è¯‘æ–‡ä»¶çš„ç‰ˆæœ¬ï¼Œé»˜è®¤æ˜¯æ‰“æˆäº† jar åŒ…
 version = '1.0.0'
 
-// Ö¸¶¨±àÒë .java ÎÄ¼şµÄ JDK °æ±¾
+// æŒ‡å®šç¼–è¯‘ .java æ–‡ä»¶çš„ JDK ç‰ˆæœ¬
 sourceCompatibility = 1.8
 
-// Ê¹ÓÃÁË Maven µÄÖĞÑë²Ö¿â£¨Ò²¿ÉÒÔÖ¸¶¨ÆäËû²Ö¿â£©
+// ä½¿ç”¨äº† Maven çš„ä¸­å¤®ä»“åº“ï¼ˆä¹Ÿå¯ä»¥æŒ‡å®šå…¶ä»–ä»“åº“ï¼‰
 repositories {
 	//mavenCentral()
 	maven { url "https://repo.spring.io/snapshot" }
@@ -41,15 +41,15 @@ repositories {
 	maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 }
 
-// ÒÀÀµ¹ØÏµ
+// ä¾èµ–å…³ç³»
 dependencies {
 
-	// ¸ÃÒÀÀµÓÃÓÚ±àÒë½×¶Î
+	// è¯¥ä¾èµ–ç”¨äºç¼–è¯‘é˜¶æ®µ
 	compile('org.springframework.boot:spring-boot-starter-web')
 
-	// Ìí¼Ó Spring Data Elasticsearch µÄÒÀÀµ
+	// æ·»åŠ  Spring Data Elasticsearch çš„ä¾èµ–
 	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
 
-	// ¸ÃÒÀÀµÓÃÓÚ²âÊÔ½×¶Î
+	// è¯¥ä¾èµ–ç”¨äºæµ‹è¯•é˜¶æ®µ
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
