@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-th-fragment="header">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Tether core CSS -->
+    <link href="../../css/tether.min.css" th:href="@{/css/tether.min.css}" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Font-Awesome CSS -->
+    <link href="../../css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+
+    <!-- NProgress CSS -->
+    <link href="../../css/nprogress.css" th:href="@{/css/nprogress.css}" rel="stylesheet">
+
+    <!-- thinker-md CSS -->
+    <link href="../../css/thinker-md.vendor.css" th:href="@{/css/thinker-md.vendor.css}" rel="stylesheet">
+
+    <!-- bootstrap tags CSS -->
+    <link href="../../css/bootstrap-tagsinput.css" th:href="@{/css/jquery.tagsinput.min.css}" rel="stylesheet">
+    
+    <!-- bootstrap chosen CSS -->
+    <link href="../../css/component-chosen.min.css" th:href="@{/css/component-chosen.min.css}" rel="stylesheet">
+
+    <!-- toastr CSS -->
+    <link href="../../css/toastr.min.css" th:href="@{/css/toastr.min.css}" rel="stylesheet">
+    
+    <!-- jQuery image cropping plugin CSS -->
+    <link href="../../css/cropbox.css" th:href="@{/css/cropbox.css}" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="../../css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+    <link href="../../css/thymeleaf-bootstrap-paginator.css" th:href="@{/css/thymeleaf-bootstrap-paginator.css}"
+          rel="stylesheet">
+    <link href="../../css/blog.css" th:href="@{/css/blog.css}" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
+		<div class="container">
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarsContainer"
+				aria-controls="navbarsExampleContainer" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="/" th:href="@{/}">NewStarBlog</a>
+
+			<div class="collapse navbar-collapse" id="navbarsContainer">
+
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link"
+						href="/blogs?order=new">最新 <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item"><a class="nav-link"
+						href="/blogs?order=hot">最热</a></li>
+					<form class="form-inline mt-2 mt-md-0">
+						<input class="form-control mr-sm-2" type="text" placeholder="搜索">
+						<a href="/blogs?keyword=ww"
+							class="btn btn-outline-secondary my-2 my-sm-0"><i
+							class="fa fa-search" aria-hidden="true"></i></a>
+					</form>
+
+				</ul>
+
+				<a href="/login" class="btn btn-outline-success my-2 my-sm-0"
+					type="submit">登录</a> <a href="/register"
+					class="btn btn-outline-success my-2 my-sm-0" type="submit">注册</a>
+			</div>
+
+		</div>
+	</nav>
+</body>
+</html>

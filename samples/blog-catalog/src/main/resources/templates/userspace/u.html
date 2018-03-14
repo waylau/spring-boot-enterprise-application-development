@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+	<!-- Page Content -->
+	<div class="container blog-content-container">
+
+		<div class="row">
+
+			<!-- 左侧栏目 -->
+			<div class="col-md-4 col-xl-3">
+
+				<div class="row">
+					<div class="col-md-12">
+						<span> <a href="/u/waylau"
+							th:href="'/u/' + ${user.username}" title="waylau"
+							th:title="${user.username}"> <img
+								th:src="${user.avatar} == null 
+									? '/images/avatar-defualt.jpg' 
+									: ${user.avatar} "
+								class="blog-avatar-230">
+						</a>
+						</span>
+
+					</div>
+
+				</div>
+				<div class="row">
+
+					<div class="col-md-12">
+						<h2 class="card-text" th:text="${user.name}">老卫</h2>
+						<h4 class="card-text" th:text="${user.username}">waylau</h4>
+					</div>
+				</div>
+
+
+				<div class="row ">
+					<div class="col-md-12">
+						<h5>
+							<i class="fa fa-envelope-o" aria-hidden="true"></i> <a
+								href="mailto:waylau521@gmail.com"
+								th:href="'mailto:'+ ${user.email}" 
+								th:text="${user.email}">waylau521@gmail.com</a>
+						</h5>
+					</div>
+				</div>
+
+				<hr>
+
+				<!-- 分类 -->
+				<div id="catalogMain">
+					<div class="card my-4" id="catalogRepleace">
+						<h5 class="card-header">
+							<i class="fa fa-bars" aria-hidden="true"></i> 分类 <a
+								href="javascript:void(0)" th:if="${isCatalogsOwner}"
+								class="blog-add-catalog blog-right" data-toggle="modal"
+								data-target="#flipFlop" role="button"><i class="fa fa-plus"
+								aria-hidden="true"></i></a>
+						</h5>
+
+						<ul class="list-group" th:each="catalog : ${catalogs}"
+							th:object="${catalog}">
+							<div class="blog-list-group-item">
+
+								<a href="javascript:void(0)" th:attr="catalogId=*{id}"
+									class="blog-query-by-catalog"> [[*{name}]] </a> <span
+									class="blog-right"> <a href="javascript:void(0)"
+									th:if="${isCatalogsOwner}" class="blog-edit-catalog"
+									data-toggle="modal" data-target="#flipFlop" role="button"
+									th:attr="catalogId=*{id}"><i class="fa fa-pencil-square-o"
+										aria-hidden="true"></i></a> <a href="javascript:void(0)"
+									th:if="${isCatalogsOwner}" class="blog-delete-catalog"
+									th:attr="catalogId=*{id}"><i class="fa fa-times"
+										aria-hidden="true"></i></a>
+								</span>
+
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- 右侧栏目 -->
+
+
+			<div class="col-md-8 col-xl-9">
+				<!-- 工具栏 -->
+
+				<ul class="nav nav-tabs mr-auto">
+
+					<li class="nav-item"><a class="nav-link "
+						data-th-classappend="${order} eq 'new' ? 'active' : ''"
+						href="javascript:void(0)"
+						th:attr="url='/u/'+${user.username}+'/blogs?order=new'">最新</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						data-th-classappend="${order} eq 'hot' ? 'active' : ''"
+						href="javascript:void(0)"
+						th:attr="url='/u/'+${user.username}+'/blogs?order=hot'">最热</a></li>
+
+					<form class="form-inline mt-2 mt-md-0">
+						<input class="form-control mr-sm-2" type="text" placeholder="搜索"
+							id="keyword" th:value="${keyword}"> <a
+							href="javascript:void(0)"
+							class="btn btn-outline-secondary my-2 my-sm-0" id="searchBlogs"><i
+							class="fa fa-search" aria-hidden="true"></i></a>
+					</form>
+
+
+				</ul>
+
+
+
+				<!-- Blog Post -->
+				<div id="mainContainer">
+					<div id="mainContainerRepleace">
+						<div class="card mb-4" th:each="blog : ${blogList}">
+							<div class="card-block">
+								<h2 class="card-title">
+									<a href="/u/waylau/blogs/1" class="card-link" title="waylau"
+										th:href="'/u/' + ${blog.user.username} + '/blogs/'+ ${blog.id}"
+										th:title="${blog.user.username}" th:text="${blog.title}">
+										OAuth 2.0 认证的原理与实践 </a>
+								</h2>
+								<p class="card-text" th:text="${blog.summary}">使用 OAuth 2.0
+									认证的的好处是显然易见的。你只需要用同一个账号密码，就能在各个网站进行访问，
+									而免去了在每个网站都进行注册的繁琐过程。
+									本文将介绍 OAuth 2.0 的原理，并基于 Spring Security 和 GitHub 账号，来
+									演示 OAuth2.0 的认证的过程。</p>
+								<div class="card-text">
+									发表于 [[${#dates.format(blog.createTime, 'yyyy-MM-dd HH:mm')}]] <i
+										class="fa fa-eye" aria-hidden="true">[[${blog.readSize}]]</i>
+									<i class="fa fa-heart-o" aria-hidden="true">[[${blog.voteSize}]]</i>
+									<i class="fa fa-comment-o" aria-hidden="true">[[${blog.commentSize}]]</i>
+								</div>
+							</div>
+						</div>
+
+						<div th:replace="~{fragments/page :: page}">...</div>
+					</div>
+				</div><!-- /Blog Post -->
+			</div>
+		</div><!-- /.row -->
+
+	</div><!-- /.container -->
+
+	<!-- 模式窗口 -->
+	<div class="modal fade" id="flipFlop" tabindex="-1" role="dialog"
+		aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modalLabel">新增/编辑</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+
+				</div>
+				<div class="modal-body" id="catalogFormContainer"></div>
+				<div class="modal-footer">
+					<button class="btn btn-primary" data-dismiss="modal"
+						id="submitEditCatalog">提交</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="~{fragments/footer :: footer}">...</div>
+	
+	<!-- JavaScript -->
+	<script th:inline="javascript">
+	var username = [[${user.username}]];
+	</script>
+	<script src="../../js/userspace/u.js" th:src="@{/js/userspace/u.js}"></script>
+</body>
+</html>
