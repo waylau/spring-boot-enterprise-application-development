@@ -1,7 +1,5 @@
 # 《Spring Boot 企业级应用开发实战》源码
 
-![](images/spring-boot-logo.jpg)
-
 ## 内容简介
 
 本书围绕如何整合以目前最新的 Spring Boot 2 版本为核心的技术栈，来实现一个完整的企业级博客系统而展开。读者可以通过学习构建这个博客系统的整个过程，来达到设计和实现一个企业级 Java EE 应用开发的目的。该博客系统是一个类似于 WordPress 的专注于博客功能的博客平台，支持多用户访问和使用。该博客系统所涉及的相关技术有 Spring Boot、Spring、Spring MVC、Spring Security 、Spring Data、Hibernate、Gradle、Bootstrap、jQuery、HTML5、JavaScript、CSS、Thymeleaf、MySQL、H2、Elasticsearch、MongoDB 等，技术点较为丰富，内容富有前瞻性。
@@ -9,6 +7,10 @@
 本书面向实战，除了给出基本的原理外，会辅以大量的案例和源码，利于读者理论联系实践。全书对于技术讲解的安排，是按照渐进式的教学方式来进行的。按照学习的难度，大致可以分为实战入门阶段、实战进阶阶段、实战高级阶段三个部分，内容包括Spring Boot 概述、Spring 框架核心概念、Spring MVC 及常用MediaType、集成 Thymeleaf、数据持久化、全文搜索、架构设计与分层、集成Bootstrap、博客系统的需求分析与设计、集成Spring Security、博客系统的整体框架实现、用户管理实现、角色管理实现、权限管理实现、文件服务器实现、博客管理实现、评论管理实现、点赞管理实现、分类管理实现、标签管理实现、首页搜索实现等。
 
 本书主要面向的用户是 Java 开发者，以及对 Spring Boot 及企业级开发感兴趣并有一定了解的读者。
+
+
+![](images/spring-boot-logo.jpg)
+
 
 ## 写作背景
 
@@ -104,6 +106,6 @@
 
 ![开源捐赠](https://waylau.com/images/showmethemoney-sm.jpg)
 
-捐赠所得所有款项将用于开源事业！
+捐赠所得所有款项将用于开源事业！见[捐赠列表](https://waylau.com/donate)。
 
 
